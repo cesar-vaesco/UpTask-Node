@@ -170,7 +170,7 @@ body.index {
 .panel h2 {
     color: #FDD835;
     font-weight: 900;
-    text-align: center;
+    text-align: left;
     font-size: 2rem;
     margin: 0;
 }
@@ -187,6 +187,7 @@ body.index {
     list-style: none;
     padding: 1.5rem 0 0 0;
     margin: 0;
+    margin-left: 15px;
 }
 
 .lista-proyectos ul li {
