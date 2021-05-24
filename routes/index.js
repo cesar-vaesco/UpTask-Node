@@ -3,19 +3,15 @@ const express = require('express');
 const router = require('express').Router();
 
 
-
+//Impostar el controlador
+const proyectosController = require('../controllers/proyectosController')
 
 
 module.exports = () => {
 
     // ruta para el home
-    router.get('/', (req, res) => {
-        res.send('Index')
-    });
-
-    router.get('/nosotros', (req, res) => {
-        res.send('Nosotros....')
-    });
+    router.get('/', proyectosController.proyectosHome);
+    router.get('/nosotros',proyectosController.proyectosNosotros);
 
     return router;
 }
