@@ -294,6 +294,7 @@ body.index {
     color: red!important;
     background-color: rgb(255, 201, 201);
     border: 1px solid red;
+    border-radius: 5px;
 }
 
 .error p {
