@@ -10,3 +10,8 @@ exports.formularioProyecto = (req, res) =>{
         nombrePagina: 'Nuevo Proyecto'
     });
 }
+
+exports.nuevoProyecto = (req, res) => {
+    // Enviar a la consla lo que el usuario escriba
+    console.log(req.body);
+}
