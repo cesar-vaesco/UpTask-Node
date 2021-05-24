@@ -11,7 +11,7 @@ module.exports = () => {
 
     // ruta para el home
     router.get('/', proyectosController.proyectosHome);
-    router.get('/nosotros',proyectosController.proyectosNosotros);
+
 
     return router;
 }
