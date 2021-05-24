@@ -1,12 +1,12 @@
 
 const express = require('express');
+const routes = require('./routes')
+
 
 //Crear una app de express
 const app = express();
 
-// ruta para el home
+app.use('/', routes());
 
-app.use('/', (req, res) => {
-    res.send('Hola....')
-});
+
 app.listen(3000);
