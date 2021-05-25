@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('uptasknode', 'root', 'cesar', {
+const db = new Sequelize('uptasknode', 'root', 'cesar', {
     host: 'localhost',
     dialect: 'mysql',
     port: '3306',
@@ -17,3 +17,12 @@ const sequelize = new Sequelize('uptasknode', 'root', 'cesar', {
     },
 
 });
+
+module.exports = db;
+
+
+/*
+    Instrucción que se ejecuta en la linea de comandos del bash de MYSQL para poder crear nuestra base de datos
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cesar';
+    FLUSH PRIVILEGES;
+*/
