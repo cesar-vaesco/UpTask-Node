@@ -1,4 +1,4 @@
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 
 const db = new Sequelize('uptasknode', 'root', 'cesar', {
     host: 'localhost',
@@ -14,7 +14,7 @@ const db = new Sequelize('uptasknode', 'root', 'cesar', {
         min: 0,
         acquire: 30000,
         idle: 10000
-    },
+    }
 
 });
 

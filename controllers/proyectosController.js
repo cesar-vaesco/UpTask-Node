@@ -1,3 +1,5 @@
+const Proyectos = require('../models/Proyectos')
+
 
 exports.proyectosHome = (req, res) => {
     res.render('index', {
@@ -25,14 +27,17 @@ exports.nuevoProyecto = (req, res) => {
     }
 
     // Si hay errores
-    if(errores.length > 0 ){
-        res.render('nuevo-proyecto',{
+    if (errores.length > 0) {
+        res.render('nuevo-proyecto', {
             nombrePagina: 'Nuevo Proyecto',
             errores
         })
-    }else {
+    } else {
         //No hay errores
         //Insertar en la base de datos
+        Proyectos.create({ nombre })
+            .then(() => console.log('Datos guardados correctamente!'))
+            .catch(error => console.log(error));
     }
 
 }
