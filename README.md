@@ -11,11 +11,12 @@
 
 ### Instalaciones del proyecto
 
- ### - dependencias de producción
+ ### - Dependencias de producción
         - express
         - pug
         - mysql2  ----> npm install --save mysql2
         - sequelize ----> npm install --save sequelize
+        - express-validator ----> npm i --save express-validator
 
 
   ### - Dependencias de desarrollo
