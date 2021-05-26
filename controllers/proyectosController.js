@@ -1,4 +1,4 @@
-const slug = require('slug');
+
 const Proyectos = require('../models/Proyectos')
 
 
@@ -37,8 +37,9 @@ exports.nuevoProyecto = async  (req, res) => {
     } else {
         //No hay errores
         //Insertar en la base de datos
-        const url = slug(nombre).toLowerCase();
-        const proyecto = await Proyectos.create({ nombre, url });
+
+
+        const proyecto = await Proyectos.create({ nombre });
         console.log(`La información guardada como '${nombre}' ha sido guardada correctamente`);
         res.redirect('/');
     }
