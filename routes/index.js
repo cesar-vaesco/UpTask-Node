@@ -15,6 +15,7 @@ module.exports = () => {
     router.get('/', proyectosController.proyectosHome);
     router.get('/nuevo-proyecto', proyectosController.formularioProyecto);
     router.post('/nuevo-proyecto',
+    //Limpiando la entrada de datos
         body('nombre').not().isEmpty().trim().escape(),
         proyectosController.nuevoProyecto);
 

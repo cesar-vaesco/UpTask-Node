@@ -17,6 +17,7 @@
         - mysql2  ----> npm install --save mysql2
         - sequelize ----> npm install --save sequelize
         - express-validator ----> npm i --save express-validator
+        - slug ----> npm i --save slug
 
 
   ### - Dependencias de desarrollo
