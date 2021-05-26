@@ -13,7 +13,7 @@ exports.formularioProyecto = (req, res) => {
     });
 }
 
-exports.nuevoProyecto = (req, res) => {
+exports.nuevoProyecto = async  (req, res) => {
     // Enviar a la consola lo que el usuario escriba
     //console.log(req.body);
 
@@ -35,9 +35,8 @@ exports.nuevoProyecto = (req, res) => {
     } else {
         //No hay errores
         //Insertar en la base de datos
-        Proyectos.create({ nombre })
-            .then(() => console.log('Datos guardados correctamente!'))
-            .catch(error => console.log(error));
+        const proyecto = await Proyectos.create({ nombre });
+        console.log(`La información guardada como '${nombre}' ha sido guardada correctamente`);
+        res.redirect('/');
     }
-
 }
