@@ -18,6 +18,7 @@
         - sequelize ----> npm install --save sequelize
         - express-validator ----> npm i --save express-validator
         - slug ----> npm i --save slug
+        - shortid ----> npm i shortid
 
 
   ### - Dependencias de desarrollo

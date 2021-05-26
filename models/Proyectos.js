@@ -1,8 +1,9 @@
-const slug = require('slug');
 const Sequelize = require('sequelize');
-
-//Importando la donfiguración de la base de datos
+const slug = require('slug');
+//Importando la configuración de la base de datos
 const db = require('../config/db');
+const shortid = require('shortid');
+
 
 //Definiendo el modelo
 
@@ -10,7 +11,8 @@ const Proyectos = db.define('proyectos', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        default: () => nanoid()
     },
     nombre: Sequelize.STRING,
     url: Sequelize.STRING
@@ -20,7 +22,7 @@ const Proyectos = db.define('proyectos', {
 
             const url = slug(proyecto.nombre).toLowerCase();
             console.log('Antes de insertar en la base de datos');
-            proyecto.url = url;
+            proyecto.url = `${url}-${shortid.generate()}`;
         }
     }
 });
