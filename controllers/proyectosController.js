@@ -3,19 +3,25 @@ const Proyectos = require('../models/Proyectos')
 
 
 
-exports.proyectosHome = (req, res) => {
+exports.proyectosHome = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
+
     res.render('index', {
-        nombrePagina: 'Proyectos'
+        nombrePagina: 'Proyectos',
+        proyectos
     });
 }
 
-exports.formularioProyecto = (req, res) => {
+exports.formularioProyecto = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
     res.render('nuevo-proyecto', {
-        nombrePagina: 'Nuevo Proyecto'
+        nombrePagina: 'Nuevo Proyecto',
+        proyectos
     });
 }
 
 exports.nuevoProyecto = async  (req, res) => {
+    const proyectos = await Proyectos.findAll();
     // Enviar a la consola lo que el usuario escriba
     //console.log(req.body);
 
@@ -32,7 +38,8 @@ exports.nuevoProyecto = async  (req, res) => {
     if (errores.length > 0) {
         res.render('nuevo-proyecto', {
             nombrePagina: 'Nuevo Proyecto',
-            errores
+            errores,
+            proyectos
         })
     } else {
         //No hay errores
