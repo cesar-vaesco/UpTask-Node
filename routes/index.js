@@ -21,5 +21,8 @@ module.exports = () => {
     // Listar proyecto
     router.get('/proyectos/:url', proyectosController.proyectosPorUrl);
 
+    //Actualizar el proyecto
+    router.get('/proyecto/editar/:id', proyectosController.formularioEditar);
+
     return router;
 }

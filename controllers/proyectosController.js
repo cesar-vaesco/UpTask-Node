@@ -76,3 +76,11 @@ exports.proyectosPorUrl = async (req, res, next) => {
         proyectos
     });
 }
+
+exports.formularioEditar = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
+    res.render('nuevo-proyecto',{
+        nombrePagina: 'Editar Proyecto',
+        proyectos
+    });
+}
