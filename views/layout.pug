@@ -27,3 +27,5 @@ html(lang="en")
                                     a(href=`#`)= proyecto.nombre
 
             block contenido
+            //- pasar información que se recibe de la base de datos y mostrarla en la vista
+            pre= vardump(proyectos)

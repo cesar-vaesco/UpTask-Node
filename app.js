@@ -3,12 +3,12 @@ const express = require('express');
 const routes = require('./routes');
 const path = require('path');
 const bodyParser = require('body-parser');
-
 //Crear la conexión a la base de datos
 const db = require('./config/db');
-
 //Importar el modelo de la base de datos
 require('./models/Proyectos');
+//Helpers
+const helpers = require('./helpers');
 
 db.sync()
     .then(() => console.log('Conectado al servidor....'))
@@ -28,6 +28,12 @@ app.set('view engine', 'pug');
 
 //Añadir la carpeta de las vistas
 app.set('views', path.join(__dirname, './views'));
+
+//Pasar vardump a la aplicación y poder usarla
+app.use((req, res, next) =>{
+    res.locals.vardump = helpers.vardump;
+    next();
+});
 
 // Habilitar body parser para leer los datos del formulario
 app.use(bodyParser.urlencoded({ extended: true }));
