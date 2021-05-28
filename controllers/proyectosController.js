@@ -51,3 +51,11 @@ exports.nuevoProyecto = async  (req, res) => {
         res.redirect('/');
     }
 }
+
+exports.proyectosPorUrl = (req, res) => {
+    /*La url la toma de la ruta declarada en el router(index.js)
+    router.get('/proyectos/:url', proyectosController.proyectosPorUrl);
+    */
+    res.send(req.params.url);
+    //res.send('Listo!!!');
+}
