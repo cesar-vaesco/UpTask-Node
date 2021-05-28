@@ -1,4 +1,5 @@
 
+
 const Proyectos = require('../models/Proyectos')
 
 
@@ -20,7 +21,7 @@ exports.formularioProyecto = async (req, res) => {
     });
 }
 
-exports.nuevoProyecto = async  (req, res) => {
+exports.nuevoProyecto = async (req, res) => {
     const proyectos = await Proyectos.findAll();
     // Enviar a la consola lo que el usuario escriba
     //console.log(req.body);
@@ -52,10 +53,26 @@ exports.nuevoProyecto = async  (req, res) => {
     }
 }
 
-exports.proyectosPorUrl = (req, res) => {
-    /*La url la toma de la ruta declarada en el router(index.js)
-    router.get('/proyectos/:url', proyectosController.proyectosPorUrl);
-    */
-    res.send(req.params.url);
-    //res.send('Listo!!!');
+exports.proyectosPorUrl = async (req, res, next) => {
+    const proyectos = await Proyectos.findAll();
+    const proyecto = await Proyectos.findOne({
+        where: {
+            url: req.params.url
+        }
+    });
+
+    //En caso de no encontrar la consulta
+    if (!proyecto) return next();
+
+    /*
+        Castear la respuesta
+    console.log(proyecto);
+    res.send('OK'); */
+
+    //render a la vista
+    res.render('tareas', {
+        nombrePagina: 'Tareas del proyecto',
+        proyecto,
+        proyectos
+    });
 }
