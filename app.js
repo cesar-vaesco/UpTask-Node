@@ -10,8 +10,10 @@ require('./models/Proyectos');
 //Helpers
 const helpers = require('./helpers');
 
+const colors = require('colors');
+
 db.sync()
-    .then(() => console.log('Conectado al servidor....'))
+    .then(() => console.log('Conectado al servidor....'.cyan))
     .catch(error => console.log(error));
 
 

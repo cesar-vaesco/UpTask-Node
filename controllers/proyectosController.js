@@ -2,7 +2,7 @@
 
 const Proyectos = require('../models/Proyectos')
 
-
+const colors = require('colors');
 
 exports.proyectosHome = async (req, res) => {
     const proyectos = await Proyectos.findAll();
@@ -46,9 +46,8 @@ exports.nuevoProyecto = async (req, res) => {
         //No hay errores
         //Insertar en la base de datos
 
-
         const proyecto = await Proyectos.create({ nombre });
-        console.log(`La información guardada como '${nombre}' ha sido guardada correctamente`);
+        console.log(`La información guardada como '${nombre}' ha sido guardada correctamente`.green);
         res.redirect('/');
     }
 }
@@ -97,4 +96,39 @@ exports.formularioEditar = async (req, res) => {
         proyectos,
         proyecto
     });
+}
+
+
+exports.actualizarProyecto = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
+    // Enviar a la consola lo que el usuario escriba
+    //console.log(req.body);
+
+    //Validar campo en el input
+    const { nombre } = req.body;
+
+    let errores = [];
+
+    if (!nombre) {
+        errores.push({ 'texto': 'Agrega un nombre al proyecto'})
+    }
+
+    // Si hay errores
+    if (errores.length > 0) {
+        res.render('nuevo-proyecto', {
+            nombrePagina: 'Nuevo Proyecto',
+            errores,
+            proyectos
+        })
+    } else {
+        //No hay errores
+        //Insertar en la base de datos
+
+        await Proyectos.update(
+            { nombre: nombre },
+            { where: { id: req.params.id } }
+        );
+        console.log(`La información actualizada como '${nombre}' ha sido guardada correctamente`.green);
+        res.redirect('/');
+    }
 }
