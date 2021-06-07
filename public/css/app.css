@@ -238,6 +238,7 @@ body.index {
     padding: 2rem;
     color: white;
     transition: background-color .5s ease-in-out;
+    border-radius: 5px;
 }
 
 /** Listado Pendientes **/
