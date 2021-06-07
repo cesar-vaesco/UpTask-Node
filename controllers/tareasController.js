@@ -20,6 +20,8 @@ exports.agregarTarea = async (req, res, next) => {
     //Leer el valor el input
     const { tarea } = req.body;
 
+
+
     //estado 0 = incompleto y ID del proyecto
     const estado = 0;
     const proyectoId = proyecto.id;
@@ -34,4 +36,5 @@ exports.agregarTarea = async (req, res, next) => {
 
     //Redireccionar
     res.redirect(`/proyectos/${req.params.url}`);
+
 }
