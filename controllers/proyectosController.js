@@ -110,7 +110,7 @@ exports.actualizarProyecto = async (req, res) => {
     let errores = [];
 
     if (!nombre) {
-        errores.push({ 'texto': 'Agrega un nombre al proyecto'})
+        errores.push({ 'texto': 'Agrega un nombre al proyecto' })
     }
 
     // Si hay errores
@@ -131,4 +131,17 @@ exports.actualizarProyecto = async (req, res) => {
         console.log(`La información actualizada como '${nombre}' ha sido guardada correctamente`.green);
         res.redirect('/');
     }
+}
+
+exports.eliminarProyecto = async (req, res, next) => {
+
+    // req, query o params
+    console.log(req.query);
+
+    const { urlProyecto } = req.query;
+
+    const resultado = await Proyectos.destroy({ where: { url: urlProyecto } });
+
+    res.status(200).send('Proyecto eliminado correctamente');
+    console.log(resultado);
 }
