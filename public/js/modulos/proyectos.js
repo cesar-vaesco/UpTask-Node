@@ -4,27 +4,47 @@ import axios from 'axios';
 
 const btnEliminar = document.querySelector('#eliminar-proyecto');
 
-btnEliminar.addEventListener('click', () => {
-    Swal.fire({
-        title: 'Desear borrar este proyecto?',
-        text: "Un proyecto eliminado no se puede recuperrar!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, borrar!',
-        cancelButtonText: 'Cancelar'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(
-                'Proyecto eliminado!',
-                'El registro del proyecto ha sido borrado.',
-                'success'
-            )
-        }
-    });
 
-    setTimeout(() => {
-        window.location.href = '/'
-    }, 3000);
-});
+if (btnEliminar) {
+    btnEliminar.addEventListener('click', (e) => {
+
+        const urlProyecto = e.target.dataset.proyectoUrl;
+
+        //console.log(urlProyecto);
+
+        Swal.fire({
+            title: 'Desear borrar este proyecto?',
+            text: "Un proyecto eliminado no se puede recuperrar!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, borrar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //Enviar petición a axios
+                const url = `${location.origin}/proyectos/${urlProyecto}`;
+
+                axios.delete(url, { params: urlProyecto })
+                    .then(function (respuesta) {
+                        console.log(respuesta);
+                    });
+
+                    return;
+
+                Swal.fire(
+                    'Proyecto eliminado!',
+                    'El registro del proyecto ha sido borrado.',
+                    'success'
+                )
+            }
+        });
+
+        setTimeout(() => {
+            window.location.href = '/'
+        }, 3000);
+    });
+}
+
+export default btnEliminar;
