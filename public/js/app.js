@@ -1,1 +1,1 @@
-alert('Hola mundo222...');
+import tareas from './modulos/proyectos';
