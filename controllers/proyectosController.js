@@ -146,6 +146,6 @@ exports.eliminarProyecto = async (req, res, next) => {
         return next();
     }
 
-    res.status(200).send('Proyecto eliminado correctamente');
+    res.status(200).send('Proyecto eliminado correctamente'.green);
     console.log(resultado);
 }

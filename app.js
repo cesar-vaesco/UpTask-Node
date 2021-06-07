@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const db = require('./config/db');
 //Importar el modelo de la base de datos
 require('./models/Proyectos');
+require('./models/Tareas');
 //Helpers
 const helpers = require('./helpers');
 
