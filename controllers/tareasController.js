@@ -56,7 +56,12 @@ exports.cambiarEstadoTarea = async (req, res, next) => {
 
     const resultado = await tarea.save();
 
-    if(!resultado) return next();
+    if (!resultado) return next();
 
     res.status(200).send('Actualizando...');
+}
+
+exports.eliminarTarea = async (req, res) => {
+    res.send('Eliminando tarea....');
+
 }
