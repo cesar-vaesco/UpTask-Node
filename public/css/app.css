@@ -1,3 +1,12 @@
+:root {
+    --main-primary-color: #21094e;
+    --purple-color: #511281;
+    --blue-color: #4ca1a3;
+    --cygan-color: #a5e1ad;
+    --white-color: #ffffff;
+    --tomato-color: #ff6347;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -14,7 +23,8 @@ body {
 /** Login **/
 
 .login, .crear-cuenta {
-    background: #455A64;
+    background: var(--main-primary-color);
+    ;
 }
 
 .contenedor-formulario {
@@ -26,7 +36,7 @@ body {
 
 .contenedor-formulario h1 {
     text-align: center;
-    color: white;
+    color: var(--white-color);
 }
 
 .contenedor-formulario h1 span {
@@ -69,7 +79,7 @@ body {
     height: 3rem;
     border: 0;
     flex: 1;
-    border: 1px solid #455A64;
+    border: 1px solid var(--main-primary-color);
     border-radius: 5rem;
     padding-left: 2rem;
     color: black;
@@ -84,7 +94,7 @@ body {
 }
 
 .boton {
-    background-color: #FDD835;
+    background-color: var(--blue-color);
     text-align: center;
     transition: background-color .5s ease-in-out;
     padding: 2rem;
@@ -106,8 +116,10 @@ body {
 
 .boton:hover {
     cursor: pointer;
-    background-color: rgb(219, 184, 29)!important;
+    /* background-color: rgb(219, 184, 29)!important; */
+    background-color: var(--cygan-color)!important;
     border-radius: 5px;
+    color: var(--white-color);
 }
 
 .boton.eliminar {
@@ -129,7 +141,7 @@ body.index {
 }
 
 .barra {
-    background-color: #455A64;
+    background-color: var(--main-primary-color);
     padding: 1rem;
     height: 60px;
     display: flex;
@@ -138,13 +150,18 @@ body.index {
 }
 
 .barra h1 {
-    color: white;
+    color: var(--white-color);
     margin: 0;
     font-size: 1.4rem;
 }
 
 .barra a {
-    color: white;
+    color: var(--tomato-color);
+    text-decoration: none;
+}
+
+.barra a:hover {
+    color: var(--white-color);
     text-decoration: none;
 }
 
@@ -164,13 +181,13 @@ body.index {
 }
 
 .panel a {
-    color: white;
+    color: var(--white-color);
     font-weight: bold;
     text-decoration: none;
 }
 
 .panel h2 {
-    color: #FDD835;
+    color: var(--tomato-color);
     font-weight: 900;
     text-align: left;
     font-size: 2rem;
@@ -182,7 +199,8 @@ body.index {
 }
 
 .crear-proyecto a {
-    color: #455A64;
+    color: var(--main-primary-color);
+    border: solid white 2px;
 }
 
 .lista-proyectos ul {
@@ -197,7 +215,7 @@ body.index {
 }
 
 .lista-proyectos ul li a:hover {
-    color: #FDD835;
+    color: var(--tomato-color);
 }
 
 /** Contenido Principal */
@@ -236,7 +254,7 @@ body.index {
     background-color: #607D8B;
     margin: 0 auto;
     padding: 2rem;
-    color: white;
+    color: var(--white-color);
     transition: background-color .5s ease-in-out;
     border-radius: 5px;
 }
@@ -249,7 +267,8 @@ body.index {
     width: 90%;
     margin: 2rem auto 0 auto;
     padding: 2rem;
-    border: 1px solid #999;
+    border: 2px solid var(--tomato-color);
+    border-radius: 3px;
 }
 
 .listado-pendientes ul {
@@ -337,7 +356,7 @@ form.agregar-proyecto {
     background-color: #607D8B;
     margin: 0 auto;
     padding: 2rem;
-    color: white;
+    color: var(--white-color);
     transition: background-color .5s ease-in-out;
     border-radius: 5px;
 }
@@ -356,7 +375,7 @@ form.agregar-proyecto input[type="text"] {
     width: 100%;
     height: 3rem;
     padding-left: 1rem;
-    border: 1px solid #455A64;
+    border: 1px solid var(--main-primary-color);
     border-radius: 5rem;
     color: black;
 }
@@ -369,6 +388,7 @@ form input[type="submit"] {
     color: black;
     width: auto;
     margin: 0;
+    border: solid white 2px;
 }
 
 .contenedor-acciones {
@@ -385,11 +405,19 @@ form input[type="submit"] {
 }
 
 .contenedor-acciones .boton.eliminar {
-    color: white;
+    color: var(--white-color);
 }
 
 .contenedor-acciones .boton {
     margin: 0;
     text-align: center;
     display: block;
+}
+
+.parrafo-tareas{
+    color: var(--tomato-color);
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    font-size: 20px;
 }
