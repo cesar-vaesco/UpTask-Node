@@ -21,14 +21,14 @@ block contenido
             ul
               if tareas.length
                 each tarea in tareas
-                    li.tarea
+                    li.tarea(data-tarea=tarea.id)
                         p= tarea.tarea
                         .acciones
-                        if tarea.estado
-                            i.far.fa-check-circle.completo
-                        else
-                            i.far.fa-check-circle
-                        i.fas.fa-trash
+                            if tarea.estado
+                                i.far.fa-check-circle.completo
+                            else
+                                i.far.fa-check-circle
+                            i.fas.fa-trash
               else
                 p.parrafo-tareas No hay tareas en este proyecto
 

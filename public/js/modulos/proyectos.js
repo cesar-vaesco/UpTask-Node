@@ -32,7 +32,7 @@ if (btnEliminar) {
 
                         Swal.fire(
                             'Proyecto eliminado!',
-                            respuesta.data,
+                            'Proyecto eliminado correctamente',
                             'success'
                         )
                         setTimeout(() => {

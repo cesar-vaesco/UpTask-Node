@@ -5,6 +5,7 @@
     --cygan-color: #a5e1ad;
     --white-color: #ffffff;
     --tomato-color: #ff6347;
+    --hueso-color: #868584;
 }
 
 html {
@@ -268,7 +269,7 @@ body.index {
     margin: 2rem auto 0 auto;
     padding: 2rem;
     border: 2px solid var(--tomato-color);
-    border-radius: 3px;
+    border-radius: ;
 }
 
 .listado-pendientes ul {
@@ -414,10 +415,10 @@ form input[type="submit"] {
     display: block;
 }
 
-.parrafo-tareas{
+.parrafo-tareas {
     color: var(--tomato-color);
     text-align: center;
-    font-family:cursive;
+    font-family: cursive;
     font-weight: bold;
     font-size: 20px;
 }

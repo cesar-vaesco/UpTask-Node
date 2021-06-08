@@ -1,14 +1,23 @@
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
-const btnAgregar = document.querySelector('.nueva-tarea');
+const tareas = document.querySelector('.listado-pendientes');
 
-if (btnAgregar) {
+if (tareas) {
 
 
-    btnAgregar.addEventListener('click', (e) => {
-        console.log('Agregando tarea');
+    tareas.addEventListener('click', (e) => {
+        /* console.log(e.target.classList); */
+        if (e.target.classList.contains('fa-check-circle')) {
+            //console.log('Actualizando...');
+            const icono = e.target;
+            const idTarea = icono.parentElement.parentElement.dataset.tarea;
 
-    })
+            console.log(idTarea);
+        }
+
+    });
 
 }
+
+export default tareas;
