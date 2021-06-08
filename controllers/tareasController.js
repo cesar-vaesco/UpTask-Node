@@ -27,14 +27,18 @@ exports.agregarTarea = async (req, res, next) => {
     const proyectoId = proyecto.id;
 
     //Insertar en la base de datos
-    const resultado = await Tareas.create({tarea, estado, proyectoId});
+    const resultado = await Tareas.create({ tarea, estado, proyectoId });
 
 
-    if(!resultado){
+    if (!resultado) {
         return next();
     }
 
     //Redireccionar
     res.redirect(`/proyectos/${req.params.url}`);
 
+}
+
+exports.cambiarEstadoTarea = (req, res) => {
+    res.send('Todo bien...');
 }
