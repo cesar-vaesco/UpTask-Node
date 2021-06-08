@@ -6,6 +6,7 @@
     --white-color: #ffffff;
     --tomato-color: #ff6347;
     --hueso-color: #868584;
+    --green-color: #008f39;
 }
 
 html {
@@ -421,4 +422,12 @@ form input[type="submit"] {
     font-family: cursive;
     font-weight: bold;
     font-size: 20px;
+}
+
+.fa-trash:hover {
+    color: var(--tomato-color);
+}
+
+.fa-check-circle:hover{
+    color: var(--green-color);
 }

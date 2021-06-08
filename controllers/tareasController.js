@@ -71,6 +71,6 @@ exports.eliminarTarea = async (req, res, next) => {
 
     if (!resultado) return next();
 
-    res.status(200).send('Eliminando tarea....');
+    res.status(200).send('Tarea eliminada....');
 
 }
