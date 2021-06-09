@@ -12,6 +12,7 @@
     "author": "César Vargas Escorcia",
     "license": "ISC",
     "dependencies": {
+        "@sweetalert2/theme-borderless": "^5.0.0",
         "axios": "^0.21.1",
         "colors": "^1.4.0",
         "concurrently": "^6.2.0",
