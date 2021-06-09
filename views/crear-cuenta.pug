@@ -9,13 +9,13 @@ html(lang="en")
         .contenedor-formulario
             h1 Crea tu cuenta en Up-Task
 
-            form#formulario.caja.caja-login(method="POST" action="/crear-cuenta")
+            form#formulario.caja.caja-login(method="POST" action="/crear-cuenta" )
                 .campo
                     label(for="email") E-mail:
-                    input(type="email" name="email" placeholder="Escribe tu email")
+                    input(type="email" name="email" placeholder="Escribe tu email" required)
                 .campo
                     label(for="password") Password:
-                    input(type="password" name="password" placeholder="Escribe tu contraseña")
+                    input(type="password" name="password" placeholder="Escribe tu contraseña" required)
                 .campo.enviar
                     input.boton(type="submit" value="Crear Cuenta")
                 .campo

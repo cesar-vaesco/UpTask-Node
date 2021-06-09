@@ -7,7 +7,7 @@ const Tareas = db.define('tareas', {
     id: {
         type: Sequelize.INTEGER(11),
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
     },
     tarea: Sequelize.STRING(100),
     estado: Sequelize.INTEGER(1)

@@ -11,16 +11,14 @@ const colors = require('colors');
 const Proyectos = db.define('proyectos', {
     id: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
-        default: () => nanoid()
+        autoIncrement: true
     },
     nombre: Sequelize.STRING(100),
     url: Sequelize.STRING(100)
 }, {
     hooks: {
         beforeCreate(proyecto) {
-
             const url = slug(proyecto.nombre).toLowerCase();
             console.log('Antes de insertar en la base de datos'.yellow);
             proyecto.url = `${url}-${shortid.generate()}`;
