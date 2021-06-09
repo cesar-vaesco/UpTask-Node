@@ -3,11 +3,15 @@ const express = require('express');
 const routes = require('./routes');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 //Crear la conexión a la base de datos
 const db = require('./config/db');
+
 //Importar el modelo de la base de datos
 require('./models/Proyectos');
 require('./models/Tareas');
+require('./models/Usuarios');
+
 //Helpers
 const helpers = require('./helpers');
 
