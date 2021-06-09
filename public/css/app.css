@@ -7,6 +7,7 @@
     --tomato-color: #ff6347;
     --hueso-color: #868584;
     --green-color: #008f39;
+    --black-color: #000000;
 }
 
 html {
@@ -84,7 +85,7 @@ body {
     border: 1px solid var(--main-primary-color);
     border-radius: 5rem;
     padding-left: 2rem;
-    color: black;
+    color: var(--black-color);
 }
 
 .campo.acciones {
@@ -132,7 +133,7 @@ body {
 }
 
 .campo a {
-    color: black;
+    color: var(--black-color);
     text-decoration: none;
 }
 
@@ -379,7 +380,7 @@ form.agregar-proyecto input[type="text"] {
     padding-left: 1rem;
     border: 1px solid var(--main-primary-color);
     border-radius: 5rem;
-    color: black;
+    color: var(--black-color);
 }
 
 form input[type="submit"] {
@@ -387,7 +388,7 @@ form input[type="submit"] {
     text-align: center;
     display: block;
     padding: 1.5rem;
-    color: black;
+    color: var(--black-color);
     width: auto;
     margin: 0;
     border: solid white 2px;
@@ -402,7 +403,7 @@ form input[type="submit"] {
 }
 
 .contenedor-acciones .boton:first-of-type {
-    color: black;
+    color: var(--black-color);
     text-decoration: none;
 }
 
@@ -428,6 +429,6 @@ form input[type="submit"] {
     color: var(--tomato-color);
 }
 
-.fa-check-circle:hover{
+.fa-check-circle:hover {
     color: var(--green-color);
 }
