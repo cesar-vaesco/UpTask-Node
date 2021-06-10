@@ -10,7 +10,7 @@ exports.autenticarUsuario = passport.authenticate('local', {
 });
 
 
-// Fubnción para revisar si el usuario esta logueado
+// Función para revisar si el usuario esta logueado
 exports.usuarioAutenticado = (req, res, next) => {
 
     //Si el usuario esta autenticado
@@ -20,4 +20,12 @@ exports.usuarioAutenticado = (req, res, next) => {
 
     // Si no esta autenticado, redirigir el formulario
     return res.redirect('/iniciar-sesion');
+}
+
+// Fubnción para cerrar sesion
+exports.cerrarSesion = (req, res, next) => {
+
+    req.session.destroy(()=>{
+        res.redirect('/iniciar-sesion');
+    })
 }
