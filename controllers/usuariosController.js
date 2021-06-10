@@ -1,4 +1,5 @@
 const Usuarios = require('../models/Usuarios');
+const colors = require('colors');
 
 
 exports.formCrearCuenta = (req, res) => {
@@ -27,19 +28,20 @@ exports.crearCuenta = async (req, res) => {
         });
         res.redirect('/iniciar-sesion');
     } catch (error) {
-        req.flash('error', error.errors.map(error => error.message));
-        console.log(error);
-        res.render('crear-cuenta', {
-            mensajes: req.flash(),
-            nombrePagina: ' Crear cuenta en UpTask',
-            email,
-            password
-        })
+
+            req.flash('error', error.errors.map(error => error.message));
+            console.log(error);
+            res.render('crear-cuenta', {
+                mensajes: req.flash(),
+                nombrePagina: ' Crear cuenta en UpTask',
+                email,
+                password
+            })
+        }
     }
 
-}
 
-exports.iniciarSesion = (req, res) => {
+exports.formIniciarSesion = (req, res) => {
 
 
     res.render('iniciar-sesion', {
