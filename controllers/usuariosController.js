@@ -17,13 +17,10 @@ exports.crearCuenta = (req, res) => {
 
     const {  email, password } = req.body;
 
-
-
     /*
     //crear el usuario
 
      */
-
     Usuarios.create({
 
         email,
@@ -34,6 +31,12 @@ exports.crearCuenta = (req, res) => {
         res.redirect('/iniciar-sesion');
     } )
 
+}
+
+exports.iniciarSesion = (req, res) =>{
 
 
+    res.render('iniciar-sesion', {
+        nombrePagina: ' Inicio de sesión'
+    })
 }
