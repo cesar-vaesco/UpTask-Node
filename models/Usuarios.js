@@ -17,15 +17,15 @@ const Usuarios = db.define('usuarios', {
         allowNull: false,
         validate: {
             isEmail: {
-                msg:'Agrega un correo válido'
+                msg: 'Agrega un e-mail válido'
             },
             notEmpty: {
-                msg:'El e-mail no puede ir vacío'
+                msg: 'El e-mail no puede ir vacío'
             }
         },
         unique: {
             args: true,
-            msg:'Usuario ya registrado'
+            msg: 'Email address already in use!'
         }
     },
     password: {
