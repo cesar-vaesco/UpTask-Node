@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const sesion = require('express-session');
 const cookieParser = require('cookie-parser');
+const passport = require('./config/passport');
 
 //Crear la conexión a la base de datos
 const db = require('./config/db');
@@ -57,6 +58,10 @@ app.use(sesion({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //Pasar vardump a la aplicación y poder usarla
 app.use((req, res, next) => {

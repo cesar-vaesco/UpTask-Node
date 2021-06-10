@@ -29,22 +29,23 @@ exports.crearCuenta = async (req, res) => {
         res.redirect('/iniciar-sesion');
     } catch (error) {
 
-            req.flash('error', error.errors.map(error => error.message));
-            console.log(error);
-            res.render('crear-cuenta', {
-                mensajes: req.flash(),
-                nombrePagina: ' Crear cuenta en UpTask',
-                email,
-                password
-            })
-        }
+        req.flash('error', error.errors.map(error => error.message));
+        console.log(error);
+        res.render('crear-cuenta', {
+            mensajes: req.flash(),
+            nombrePagina: ' Crear cuenta en UpTask',
+            email,
+            password
+        })
     }
+}
 
 
 exports.formIniciarSesion = (req, res) => {
-
-
+    /* console.log(res.locals.mensajes); */
+    const { error } = res.locals.mensajes;
     res.render('iniciar-sesion', {
-        nombrePagina: ' Inicio de sesión'
+        nombrePagina: ' Inicio de sesión en UpTask',
+        error: error
     })
 }
