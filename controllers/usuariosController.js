@@ -27,8 +27,9 @@ exports.crearCuenta = async(req, res) => {
         });
         res.redirect('/iniciar-sesion');
     } catch (error) {
+        /* console.log(error); */
         res.render('crear-cuenta', {
-            error: error.errors,
+            errores: error.errors,
             nombrePagina: ' Crear cuenta en UpTask'
         })
     }
