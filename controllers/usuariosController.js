@@ -9,7 +9,7 @@ exports.formCrearCuenta = (req, res) => {
     })
 }
 
-exports.crearCuenta = async(req, res) => {
+exports.crearCuenta = async (req, res) => {
 
     //leer los datos
     /* console.log(req.body);
@@ -27,16 +27,17 @@ exports.crearCuenta = async(req, res) => {
         });
         res.redirect('/iniciar-sesion');
     } catch (error) {
+        req.flash('error', error.errors.map(error => error.message));
         /* console.log(error); */
         res.render('crear-cuenta', {
-            errores: error.errors,
+            mensajes: req.flash(),
             nombrePagina: ' Crear cuenta en UpTask'
         })
     }
 
 }
 
-exports.iniciarSesion = (req, res) =>{
+exports.iniciarSesion = (req, res) => {
 
 
     res.render('iniciar-sesion', {

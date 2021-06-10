@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 /* const expressValidator = require('express-validator'); */
 const flash = require('connect-flash');
+const sesion = require('express-session');
+const cookieParser = require('cookie-parser');
 
 //Crear la conexión a la base de datos
 const db = require('./config/db');
@@ -47,9 +49,19 @@ app.set('views', path.join(__dirname, './views'));
 // Agregar flash messages
 app.use(flash());
 
+app.use(cookieParser());
+
+// Sessiones nos permiten navegar entre distintas páginas sin volvernos a autentificar
+app.use(sesion({
+    secret: 'supersecreto',
+    resave: false,
+    saveUninitialized: false
+}));
+
 //Pasar vardump a la aplicación y poder usarla
 app.use((req, res, next) => {
     res.locals.vardump = helpers.vardump;
+    res.locals.mensajes = req.flash();
     next();
 });
 

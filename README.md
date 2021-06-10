@@ -21,6 +21,8 @@
         - slug ----> npm i --save slug
         - shortid ----> npm i shortid
         - bcrypt(encriptar contraseña) --->npm i -save bcrypt-nodejs
+        - cookie-parser ---> npm install --save cookie-parser
+        - express-session ---> npm install --save  express-session
 
 
   ### - Dependencias de desarrollo
