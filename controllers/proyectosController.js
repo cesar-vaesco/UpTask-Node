@@ -50,7 +50,8 @@ exports.nuevoProyecto = async (req, res) => {
         //No hay errores
         //Insertar en la base de datos
 
-        const proyecto = await Proyectos.create({ nombre });
+        const usuarioId = res.locals.usuario.id;
+        await Proyectos.create({ nombre, usuarioId });
         console.log(`La información guardada como '${nombre}' ha sido guardada correctamente`.green);
         res.redirect('/');
     }
