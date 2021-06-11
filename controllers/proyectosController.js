@@ -6,6 +6,9 @@ const Tareas = require('../models/Tareas')
 const colors = require('colors');
 
 exports.proyectosHome = async (req, res) => {
+
+    console.log(res.locals.usuario);
+
     const proyectos = await Proyectos.findAll();
 
     res.render('index', {
