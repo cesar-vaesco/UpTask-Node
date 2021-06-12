@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario
+            h1= nombrePagina
+            p Agrega tu e-mail para reestablecer tu contraseña
+            form.caja-login(method="POST" action="/reestablecer")
+                .campo
+                    label(for="email") E-mail:
+                    input(type="email" name="email" placeholder="Escribe tu email" value= email )
+                .campo.enviar
+                    input.boton(type="submit" value="Reestablecer password")
+                .campo.acciones
+                    a(href="/iniciar-sesion") << Volver a login!
