@@ -4,6 +4,7 @@ const Usuarios = require('../models/Usuarios');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
 const crypto = require('crypto');
+const bcrypt = require('bcrypt-nodejs');
 /* const { Sequelize } = require('sequelize/types'); */
 
 
@@ -89,11 +90,11 @@ exports.validarToken = async (req, res) => {
 // Cambia el password por uno nuevo
 exports.actualizarPassword = async (req, res) => {
     //Verifica token valido y fecha de validación
-    const usuario = await findOne({
+    const usuario = await Usuarios.findOne({
         where: {
             token: req.params.token,
             expiracion: {
-                [Op.gte] :[Date.now()]
+                [Op.gte] :Date.now()
             }
         }
     });
@@ -103,4 +104,19 @@ exports.actualizarPassword = async (req, res) => {
         req.flash('error', 'No Válido');
         res.redirect('/reestablecer');
     }
+
+    // Hashear el password
+
+    usuario.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+    usuario.token = null;
+    usuario.expiracion =null
+
+
+    // Guardamos el nuevo password
+
+    await usuario.save();
+
+    req.flash('correcto', 'Tu password se amodificado correctamente..')
+    res.redirect('/iniciar-sesion');
+
 }

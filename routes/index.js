@@ -88,7 +88,7 @@ module.exports = () => {
     router.get('/reestablecer', usuariosController.formRestablecerPassword);
     router.post('/reestablecer',authController.enviarToken);
     router.get('/reestablecer/:token', authController.validarToken);
-    router.post('/reestablecer',authController.actualizarPassword);
+    router.post('/reestablecer/:token',authController.actualizarPassword);
 
     return router;
 }
