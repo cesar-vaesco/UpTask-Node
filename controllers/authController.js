@@ -2,6 +2,8 @@
 const passport = require('passport');
 const Usuarios = require('../models/Usuarios');
 const crypto = require('crypto');
+require('colors')
+
 
 exports.autenticarUsuario = passport.authenticate('local', {
     successRedirect: '/',
@@ -60,6 +62,24 @@ exports.enviarToken = async (req, res) => {
 }
 
 
-exports.resetPassword = (req, res) => {
-    res.json(req.params.token);
+exports.resetPassword = async (req, res) => {
+    const usuario = await Usuarios.findOne({
+        where: {
+            token: req.params.token
+        }
+    });
+
+    /* console.log(usuario); */
+
+    // Si no encuntra el usuario
+    if (!usuario) {
+        req.flash('error', 'No Válido');
+        res.redirect('/reestablecer')
+    }
+
+// Formulario para generar el password
+    res.render('resetPassword', {
+        nombrePagina: 'Reestablecer contraseña'
+    })
+
 }
