@@ -51,7 +51,11 @@ exports.formIniciarSesion = (req, res) => {
 }
 
 exports.formRestablecerPassword = (req, res) => {
+
+
     res.render('reestablecer', {
         nombrePagina: 'Restablece tu contraseña!'
     })
+
+
 }

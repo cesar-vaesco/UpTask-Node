@@ -37,7 +37,7 @@ exports.cerrarSesion = (req, res, next) => {
     })
 }
 
-//Genera un tokne si el usuario es valido
+//Genera un token si el usuario es valido
 exports.enviarToken = async (req, res) => {
 
     // Verdicar si el usuario exista
@@ -47,7 +47,7 @@ exports.enviarToken = async (req, res) => {
     // Si no existe el usuario
     if (!usuario) {
         req.flash('error', 'No existe esa cuenta');
-        res.redirect('reestablecer');
+        res.redirect('/reestablecer');
     }
 
     //El usuario existe
@@ -60,25 +60,27 @@ exports.enviarToken = async (req, res) => {
     // URL de reset
     const resetUrl = `http://${req.headers.host}/reestablecer/${usuario.token}`
 
-    console.log(resetUrl);
+    console.log(`RESETURL: ${resetUrl}`);
 
 }
 
 
 exports.validarToken = async (req, res) => {
+
     const usuario = await Usuarios.findOne({
         where: {
             token: req.params.token
         }
     });
 
-    /* console.log(usuario); */
+/*     console.log(usuario); */
 
-    // Si no encuntra el usuario
+    // Si no encuentra el usuario
     if (!usuario) {
         req.flash('error', 'No Válido');
         res.redirect('/reestablecer')
     }
+
 
     // Formulario para generar el password
     res.render('resetPassword', {
@@ -89,18 +91,18 @@ exports.validarToken = async (req, res) => {
 
 // Cambia el password por uno nuevo
 exports.actualizarPassword = async (req, res) => {
-    //Verifica token valido y fecha de validación
+    //Verifica token valido y fecha de expiración
     const usuario = await Usuarios.findOne({
         where: {
             token: req.params.token,
             expiracion: {
-                [Op.gte] :Date.now()
+                [Op.gte]: Date.now()
             }
         }
     });
 
     // Verificamos si el usuario existe
-    if(!usuario){
+    if (!usuario) {
         req.flash('error', 'No Válido');
         res.redirect('/reestablecer');
     }
@@ -109,14 +111,14 @@ exports.actualizarPassword = async (req, res) => {
 
     usuario.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     usuario.token = null;
-    usuario.expiracion =null
+    usuario.expiracion = null
 
 
     // Guardamos el nuevo password
 
     await usuario.save();
 
-    req.flash('correcto', 'Tu password se amodificado correctamente..')
+    req.flash('correcto', 'Tu password se ha modificado correctamente..')
     res.redirect('/iniciar-sesion');
 
 }

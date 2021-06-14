@@ -17,8 +17,8 @@ html(lang="en")
             form.caja-login(method="POST" action="/reestablecer")
                 .campo
                     label(for="email") E-mail:
-                    input(type="text" name="email" placeholder="Escribe tu email" value= email )
+                    input(type="email" name="email" placeholder="Escribe tu email")
                 .campo.enviar
                     input.boton(type="submit" value="Reestablecer password")
                 .campo.acciones
-                    a(href="/iniciar-sesion") << Volver a login!
+                    a(href="/iniciar-sesion") Ya lo recordé, volver a Login

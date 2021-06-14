@@ -24,6 +24,9 @@
         - cookie-parser ---> npm install --save cookie-parser
         - express-session ---> npm install --save  express-session
         - passport  --->  npm i --save passport
+        - nodemailer --->  npm install --save nodemailer
+        - juice --->   npm install --save juice
+        - html-to-text --->   npm install --save  html-to-text
 
 
   ### - Dependencias de desarrollo
