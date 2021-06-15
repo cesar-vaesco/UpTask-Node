@@ -27,6 +27,7 @@
         - nodemailer --->  npm install --save nodemailer
         - juice --->   npm install --save juice
         - html-to-text --->   npm install --save  html-to-text
+        - dotenv --->  npm install --save dotenv
 
 
         - Mailtrap ---> https://mailtrap.io/  revisar envío de correos

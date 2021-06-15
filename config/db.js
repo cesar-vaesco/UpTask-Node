@@ -1,22 +1,31 @@
 const Sequelize = require('sequelize');
+// Extrar valores de variables.env
+require('dotenv').config({ path: 'variables.env' })
 
-const db = new Sequelize('uptasknode', 'root', 'cesar', {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: '3306',
-    operatorsAliases: false,
-    define: {
-        timestamps: false
-    },
+const db = new Sequelize(
 
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
+    process.env.DB_NOMBRE,
+    process.env.DB_USER,
+    process.env.DB_PASS,
+    {
+
+        host: process.env.DB_HOST,
+        dialect: 'mysql',
+        port: process.env.DB_PORT,
+        operatorsAliases: false,
+        define: {
+            timestamps: false
+        },
+
+        pool: {
+            max: 5,
+            min: 0,
+            acquire: 30000,
+            idle: 10000
+        }
+
     }
-
-});
+);
 
 module.exports = db;
 
