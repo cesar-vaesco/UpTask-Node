@@ -84,3 +84,25 @@ exports.formRestablecerPassword = (req, res) => {
 
 
 }
+
+
+exports.confirmarCuenta = async (req, res) => {
+    /* res.json(req.params.correo); */
+    const usuario = await Usuarios.findOne({
+        where: {
+            email: req.params.correo
+        }
+    });
+
+    // Si no existe el usuario
+    if (!usuario) {
+        req.flash('error', 'No Valido');
+        res.redirect('/crear-cuenta');
+    }
+
+    usuario.activo = 1;
+    await usuario.save();
+
+    req.flash('correcto', 'Cuenta activada correctament!!');
+    res.redirect('/iniciar-sesion');
+}

@@ -29,5 +29,11 @@
         - html-to-text --->   npm install --save  html-to-text
 
 
+        - Mailtrap ---> https://mailtrap.io/  revisar envío de correos
+
+
   ### - Dependencias de desarrollo
         - nodemon
+
+
+### -
