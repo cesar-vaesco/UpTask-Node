@@ -1,6 +1,17 @@
 
 ## Proyecto desarrollado con NODE y desplegado en HEROKU
 
+Primero, se ebe de tener nuestro repositorio en github hospedado
+
+Después, teniendo instalado heroku CLI en nuestro equipo se digita en la terminal en el directorio donde esta nuestro proyecto
+el siguiente script,:
+- heroku create --remote production
+
+Siguiente se manda desde GIT a Heroku para que lo que se tienen en github se refleje en HEROKU
+- git push production main
+
+
+
 #### Arrancar servidor
 
     npm start
