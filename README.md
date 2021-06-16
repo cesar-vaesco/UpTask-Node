@@ -33,6 +33,13 @@ Extrayendo información de la variable
 
 Para configurar las variables se deben de extraer los valores y asignarlas con el nombre como se hayan declarado en el archivo variables.env
 
+### Actualizar nuestra app en producción
+
+Habiendo hecho push a la nube de github, toca actualizar nuestra app hospedada en HEROKU y eso se hace con el siguiente comando:
+
+git push production main   --> main por el nombre de la rama en la cuál se encuentra nuestra app lista para subir a producción
+
+
 
 #### Arrancar servidor
 
