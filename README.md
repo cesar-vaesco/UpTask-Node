@@ -1,7 +1,38 @@
+### Tecnologías utilizadas en este proyecto
+- Node.js y librerías para crear el backend
+- Pug para renderizar las vistas
+- Mysql para guardar la información en la bases de datos
+- Heroku como hosting de nuestra app
 
-## Proyecto desarrollado con NODE y desplegado en HEROKU
 
-Primero, se ebe de tener nuestro repositorio en github hospedado
+### URL del proyecto
+http://nameless-beach-69704.herokuapp.com/
+
+
+Acciones que se pueden realizar en esta app:
+
+- Crear cuenta de usuarios
+- Validar su cuenta vía correo electrónico
+- Recuperar contraseña
+- Iniciar sesión
+- Crear, eliminar, editar y listar proyectos
+- Agregar, eliminar, editar y listar tareas a los proyectos
+- Ver el avance de las tareas
+- Cerrar sesión
+
+
+![Crear cuenta](public/img/crear-cuenta.png)
+![Validar cuenta](public/img/mailtrap.png)
+![Iniciar sesion](public/img/iniciar-sesion.png)
+![Sesion iniciada](public/img/sesion-iniciada.png)
+![Agregando proyecto](public/img/agrgando-proyecto.png)
+![Agregando tarea](public/img/agregando-tareas.png)
+
+
+
+## Pasos para desplegar en HEROKU
+
+Primero, se debe de tener nuestro repositorio en github hospedado
 
 Después, teniendo instalado heroku CLI en nuestro equipo se digita en la terminal en el directorio donde esta nuestro proyecto
 el siguiente script,:
@@ -10,13 +41,16 @@ el siguiente script,:
 Siguiente se manda desde GIT a Heroku para que lo que se tienen en github se refleje en HEROKU
 - git push production main
 
+![Seleccionado mysql](public/img/mysql_heroku.png)
 
 EN https://dashboard.heroku.com/ de nuestra cuenta en HEROKU donde se encuentras detalles de nuestra aplicación
-se selecciona la base de datos para cargar nuestra información, para sta aplicación es CLEARDB_MYSQL
+se selecciona la base de datos para cargar nuestra información, para esta aplicación es CLEARDB_MYSQL
+![setting heroku](public/img/seleccioar_base_mysql.png)
 
 Después de seleccionada la base de datos, en HEROKU se extraen las variables de configuración dando click a settings y después buscando la opción "Reveal Config Vars"
 
 Ya desplega la opción "Reveal Config Vars" vamos encontrar la variable de configuración donde viene toda la información para conectar con las variables de conexión que requerimos para conectar nuestra base de datos
+![Editar variables](public/img/var_config.png)
 
 Partes de la variable de conexión  CLEARDB_DATABASE_URL
 
@@ -39,7 +73,8 @@ Habiendo hecho push a la nube de github, toca actualizar nuestra app hospedada e
 
 git push production main   --> main por el nombre de la rama en la cuál se encuentra nuestra app lista para subir a producción
 
-
+### Validar cuenta
+la cuenta se valida por correo en https://mailtrap.io/
 
 #### Arrancar servidor
 
