@@ -11,6 +11,28 @@ Siguiente se manda desde GIT a Heroku para que lo que se tienen en github se ref
 - git push production main
 
 
+EN https://dashboard.heroku.com/ de nuestra cuenta en HEROKU donde se encuentras detalles de nuestra aplicación
+se selecciona la base de datos para cargar nuestra información, para sta aplicación es CLEARDB_MYSQL
+
+Después de seleccionada la base de datos, en HEROKU se extraen las variables de configuración dando click a settings y después buscando la opción "Reveal Config Vars"
+
+Ya desplega la opción "Reveal Config Vars" vamos encontrar la variable de configuración donde viene toda la información para conectar con las variables de conexión que requerimos para conectar nuestra base de datos
+
+Partes de la variable de conexión  CLEARDB_DATABASE_URL
+
+mysql://usuario@us-cdbr-east-04.cleardb.com/heroku_57c31b57ab749cd?reconnect=true
+
+mysql://usuario:password@nombre_dominio/nombre_base_datos?reconnect=true
+
+Extrayendo información de la variable
+
+ usuario b71ad90aesdsa3df3804
+ password 750sdd3ds128ac
+ nombre_dominio us-cdbr-eassadaxt-04.clesdsadasdardb.com
+ nombre_base_datos heroku_57c31sddsdqwb57ab749cd
+
+Para configurar las variables se deben de extraer los valores y asignarlas con el nombre como se hayan declarado en el archivo variables.env
+
 
 #### Arrancar servidor
 
